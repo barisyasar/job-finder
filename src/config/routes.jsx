@@ -1,3 +1,4 @@
+import Layout from "@/components/Layout";
 import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
 
@@ -5,22 +6,25 @@ const Home = lazy(() => import("@/pages/Home"));
 const Jobs = lazy(() => import("@/pages/Jobs"));
 const NotFound = lazy(() => import("@/pages/NotFound"));
 
-const ROUTES = [
+const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: <Layout />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/jobs",
+        element: <Jobs />,
+      },
+      {
+        path: "*",
+        element: <NotFound />,
+      },
+    ],
     errorElement: <NotFound />,
   },
-  {
-    path: "/jobs",
-    element: <Jobs />,
-    errorElement: <NotFound />,
-  },
-  {
-    path: "*",
-    element: <NotFound />,
-  },
-];
-
-const router = createBrowserRouter(ROUTES);
+]);
 export default router;
