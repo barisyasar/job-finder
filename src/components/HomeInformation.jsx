@@ -10,7 +10,9 @@ function HomeInformation() {
         <div className="py-36 lg:py-0 lg:flex lg:gap-8 lg:w-1/2 lg:pe-10 self-start">
           <NavbarBrand />
           <article>
-            <h2 className="text-2xl font-semibold">Ready to get started</h2>
+            <h2 className="text-2xl font-semibold mt-3 lg:mt-0">
+              Ready to get started?
+            </h2>
             <p className="font-light mt-3 max-w-xl mx-auto">
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed
               ullam voluptatem enim, aut aliquid fugiat nesciunt voluptatibus
