@@ -9,7 +9,7 @@
 
 ## Features
 
-- **Authentication:** Users can create new accounts and log into existing accounts.
+- **Authentication:** Users can create new accounts and Loginto existing accounts.
 - **Job Listing:** Users can view and filter job listings.
 - **Application Process:** Users can apply for job listings or withdraw their applications.
 - **Responsive Design:** The application displays properly on mobile devices.

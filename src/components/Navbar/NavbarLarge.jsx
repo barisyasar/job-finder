@@ -1,15 +1,16 @@
 // NavbarLarge
+import LoginDialog from "../LoginDialog";
 import NavbarBrand from "../NavbarBrand";
-import { Button } from "../ui/button";
+import SignUpDialog from "../SignUpDialog";
 
 function NavbarLarge() {
   return (
     <nav className="container flex justify-between items-center">
       <NavbarBrand />
 
-      <div className="flex gap-2">
-        <Button variant="outline">Log In</Button>
-        <Button>Sign Up</Button>
+      <div className="flex gap-3">
+        <LoginDialog />
+        <SignUpDialog />
       </div>
     </nav>
   );
