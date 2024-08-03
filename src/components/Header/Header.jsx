@@ -1,10 +1,11 @@
 // Header.jsx
-import NavbarBrand from "../NavbarBrand";
+
+import Navbar from "../Navbar";
 
 function Header() {
   return (
     <header>
-      <NavbarBrand />
+      <Navbar />
     </header>
   );
 }
