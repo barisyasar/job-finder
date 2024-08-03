@@ -9,10 +9,12 @@ const ROUTES = [
   {
     path: "/",
     element: <Home />,
+    errorElement: <NotFound />,
   },
   {
     path: "/jobs",
     element: <Jobs />,
+    errorElement: <NotFound />,
   },
   {
     path: "*",
