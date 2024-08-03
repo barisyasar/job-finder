@@ -1,3 +1,4 @@
+// Sign Up Dialog
 import useZustand from "@/state/useZustand";
 import { Button } from "../ui/button";
 import {
@@ -8,6 +9,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "../ui/dialog";
+import SignUpForm from "../SignUpForm";
 
 export default function SignUpDialog() {
   const { dialog, setDialog, resetDialog } = useZustand();
@@ -25,11 +27,13 @@ export default function SignUpDialog() {
           <DialogTitle>SIGN UP</DialogTitle>
         </DialogHeader>
 
-        <DialogFooter className="flex items-center gap-2">
-          Already have an account?
+        <SignUpForm />
+
+        <DialogFooter className="flex flex-row flex-wrap items-center">
+          <div>Already have an account?</div>&nbsp;&nbsp;
           <Button
             variant="link"
-            className="p-0 text-base"
+            className="p-0 text-base text-blue-600"
             size="md"
             onClick={() => setDialog("login")}
           >

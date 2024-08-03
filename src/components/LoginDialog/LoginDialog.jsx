@@ -1,3 +1,4 @@
+// Login Dialog
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -8,6 +9,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import useZustand from "@/state/useZustand";
+import LoginForm from "../LoginForm/LoginForm";
 
 export default function LoginDialog() {
   const { dialog, setDialog, resetDialog } = useZustand();
@@ -27,11 +29,13 @@ export default function LoginDialog() {
           <DialogTitle>LOGIN</DialogTitle>
         </DialogHeader>
 
-        <DialogFooter className="flex items-center gap-2">
-          Don&apos;t you have an account?
+        <LoginForm />
+
+        <DialogFooter className="flex flex-row flex-wrap items-center">
+          <div>Don&apos;t you have an account?</div>&nbsp;&nbsp;
           <Button
             variant="link"
-            className="p-0 text-base"
+            className="p-0 text-base text-blue-600"
             size="md"
             onClick={() => setDialog("sign up")}
           >
