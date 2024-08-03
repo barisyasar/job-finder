@@ -1,3 +1,4 @@
+import useZustand from "@/state/useZustand";
 import { Button } from "../ui/button";
 import {
   Dialog,
@@ -9,8 +10,13 @@ import {
 } from "../ui/dialog";
 
 export default function SignUpDialog() {
+  const { dialog, setDialog, resetDialog } = useZustand();
+
   return (
-    <Dialog>
+    <Dialog
+      open={dialog === "sign up"}
+      onOpenChange={(open) => (open ? setDialog("sign up") : resetDialog())}
+    >
       <DialogTrigger asChild>
         <Button size="sm">Sign Up</Button>
       </DialogTrigger>
@@ -19,7 +25,17 @@ export default function SignUpDialog() {
           <DialogTitle>SIGN UP</DialogTitle>
         </DialogHeader>
 
-        <DialogFooter>Already have an account? Login</DialogFooter>
+        <DialogFooter className="flex items-center gap-2">
+          Already have an account?
+          <Button
+            variant="link"
+            className="p-0 text-base"
+            size="md"
+            onClick={() => setDialog("login")}
+          >
+            Login
+          </Button>
+        </DialogFooter>
       </DialogContent>
     </Dialog>
   );

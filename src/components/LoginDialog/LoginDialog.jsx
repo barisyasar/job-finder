@@ -7,10 +7,16 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import useZustand from "@/state/useZustand";
 
 export default function LoginDialog() {
+  const { dialog, setDialog, resetDialog } = useZustand();
+
   return (
-    <Dialog>
+    <Dialog
+      open={dialog === "login"}
+      onOpenChange={(open) => (open ? setDialog("login") : resetDialog())}
+    >
       <DialogTrigger asChild>
         <Button size="sm" variant="outline">
           Login
@@ -21,7 +27,17 @@ export default function LoginDialog() {
           <DialogTitle>LOGIN</DialogTitle>
         </DialogHeader>
 
-        <DialogFooter>Don&apos;t you have an account? Sign Up</DialogFooter>
+        <DialogFooter className="flex items-center gap-2">
+          Don&apos;t you have an account?
+          <Button
+            variant="link"
+            className="p-0 text-base"
+            size="md"
+            onClick={() => setDialog("sign up")}
+          >
+            Sign Up
+          </Button>
+        </DialogFooter>
       </DialogContent>
     </Dialog>
   );
