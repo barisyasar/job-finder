@@ -11,12 +11,12 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { toast } from "@/components/ui/use-toast";
-import baseSchema from "@/config/validations";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { loginchema } from "@/config/validations";
 
 export default function LoginForm() {
   const form = useForm({
-    resolver: yupResolver(baseSchema),
+    resolver: yupResolver(loginchema),
     defaultValues: {
       email: "",
       password: "",
