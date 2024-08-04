@@ -24,6 +24,7 @@ function AsideLayout() {
             <aside className="w-1/3 xl:w-1/4">
               <ScrollArea className="h-screen pt-20">
                 <AppliedJobs />
+                <div className="mt-5 text-xl text-center">Applied Jobs</div>
               </ScrollArea>
             </aside>
           </>
