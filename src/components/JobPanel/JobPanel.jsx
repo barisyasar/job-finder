@@ -7,9 +7,26 @@ import JobPagination from "./JobPagination";
 import OrderJobInput from "./OrderJobInput";
 import SearchJobIntput from "./SearchJobInput";
 import AppliedJobsSheet from "../AppliedJobsSheet/AppliedjobsSheet";
+import { Alert, AlertDescription, AlertTitle } from "../ui/alert";
+import { ExclamationTriangleIcon } from "@radix-ui/react-icons";
+import { useJobs } from "@/hooks/useJobs";
 
 function JobPanel() {
   const isAboveLarge = useScreen("lg");
+
+  const { isLoading, error, data } = useJobs();
+
+  if (isLoading) return <div>Loading...</div>;
+  if (error)
+    return (
+      <div className="container mt-4 max-w-2xl">
+        <Alert variant="destructive">
+          <ExclamationTriangleIcon className="h-4 w-4" />
+          <AlertTitle>Error loading jobs</AlertTitle>
+          <AlertDescription>{error.message}</AlertDescription>
+        </Alert>
+      </div>
+    );
 
   return (
     <section>
@@ -31,7 +48,7 @@ function JobPanel() {
         </div>
       </div>
       <Separator />
-      <JobList />
+      <JobList jobs={data.data} />
       <Separator />
       <div className="container my-4">
         <div className="flex flex-col sm:flex-row sm:justify-between gap-5 lg:items-center">
