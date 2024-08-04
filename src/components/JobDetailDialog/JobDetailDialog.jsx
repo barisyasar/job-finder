@@ -38,6 +38,10 @@ export default function JobDetailDialog({ job }) {
                 <span className="font-light">{formatDate(job.createdAt)}</span>
               </div>
               <div>
+                <span className="font-semibold">Location:</span>{" "}
+                <span className="font-light">{job.location}</span>
+              </div>
+              <div>
                 <div className="font-semibold mb-2">Keywords:</div>
                 <KeywordList keywords={job.keywords} />
               </div>
