@@ -8,6 +8,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { formatDate } from "@/utils/formatDate";
 import { DialogClose, DialogDescription } from "@radix-ui/react-dialog";
 
 export default function JobDetailDialog({ job }) {
@@ -33,7 +34,7 @@ export default function JobDetailDialog({ job }) {
               </div>
               <div>
                 <span className="font-semibold">Created At:</span>{" "}
-                <span className="font-light">{job.createdAt}</span>
+                <span className="font-light">{formatDate(job.createdAt)}</span>
               </div>
               <div>
                 <span className="font-semibold">Keyword:</span>{" "}
