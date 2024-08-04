@@ -2,6 +2,7 @@
 import { ExclamationTriangleIcon } from "@radix-ui/react-icons";
 
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import LoginDialog from "../LoginDialog";
 
 function Auth() {
   return (
@@ -13,6 +14,9 @@ function Auth() {
           In order to view this page you must login.
         </AlertDescription>
       </Alert>
+      <div className="mt-3 flex justify-center">
+        <LoginDialog />
+      </div>
     </div>
   );
 }
