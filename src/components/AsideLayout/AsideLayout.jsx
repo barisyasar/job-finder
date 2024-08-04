@@ -21,8 +21,8 @@ function AsideLayout() {
         {isAboveLarge && (
           <>
             <Separator orientation="vertical" className="h-screen" />
-            <aside className="w-1/3">
-              <ScrollArea className="h-screen">
+            <aside className="w-1/3 xl:w-1/4">
+              <ScrollArea className="h-screen pt-20">
                 <AppliedJobs />
               </ScrollArea>
             </aside>
