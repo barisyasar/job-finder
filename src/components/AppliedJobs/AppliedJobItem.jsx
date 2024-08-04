@@ -12,7 +12,7 @@ function AppliedJobItem({ job }) {
       <CardHeader>
         <CardTitle>{job.name}</CardTitle>
         <CardDescription>
-          <div className="flex flex-col space-y-1.5 mt-3">
+          <div className="flex flex-col space-y-1.5 mt-3 text-start">
             <div>
               <span className="font-semibold">Company Name:</span>{" "}
               <span className="font-light">{job.companyName}</span>
