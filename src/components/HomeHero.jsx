@@ -2,7 +2,7 @@
 
 function HomeHero() {
   return (
-    <section className="h-screen md:h-auto md:min-h-[650px] flex items-center">
+    <section className="h-[calc(100vh-4rem)] md:h-auto md:min-h-[450px] flex items-center">
       <article className="container text-center">
         <h1 className="text-2xl font-semibold">Best Position Ever Found</h1>
         <p className="font-light max-w-xl mx-auto mt-5">

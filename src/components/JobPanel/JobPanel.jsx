@@ -10,7 +10,7 @@ function JobPanel() {
   return (
     <section>
       <div className="container">
-        <div className="flex gap-3 mb-3 items-center">
+        <div className="flex gap-3 my-3 items-center">
           <div className="text-sm hidden sm:block">Basic Filter</div>
           <div className="w-[140px]">
             <OrderJobInput />
