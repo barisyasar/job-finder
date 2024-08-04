@@ -1,4 +1,5 @@
 // Order Job Input
+import useZustand from "@/state/useZustand";
 import {
   Select,
   SelectContent,
@@ -9,17 +10,33 @@ import {
 } from "../ui/select";
 
 function OrderJobInput() {
+  const {
+    orderByField,
+    orderByDirection,
+    setOrderByField,
+    setOrderByDirection,
+  } = useZustand();
+
+  const handleSelectChange = (value) => {
+    const [field, direction] = value.split("_");
+    setOrderByField(field);
+    setOrderByDirection(direction);
+  };
+
   return (
-    <Select>
+    <Select
+      onValueChange={handleSelectChange}
+      defaultValue={`${orderByField}_${orderByDirection}`}
+    >
       <SelectTrigger>
         <SelectValue placeholder="Select a field" />
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
-          <SelectItem value="apple">Newest to oldest</SelectItem>
-          <SelectItem value="banana">Oldest to newest</SelectItem>
-          <SelectItem value="blueberry">Salary high to low</SelectItem>
-          <SelectItem value="grapes">Salary low to high</SelectItem>
+          <SelectItem value="createdAt_asc">Newest to oldest</SelectItem>
+          <SelectItem value="createdAt_desc">Oldest to newest</SelectItem>
+          <SelectItem value="salary_asc">Salary low to high</SelectItem>
+          <SelectItem value="salary_desc">Salary high to low</SelectItem>
         </SelectGroup>
       </SelectContent>
     </Select>

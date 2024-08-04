@@ -1,4 +1,5 @@
-// Job Display Count
+// Display Count
+import useZustand from "@/state/useZustand";
 import {
   Select,
   SelectContent,
@@ -9,11 +10,17 @@ import {
 } from "../ui/select";
 
 function JobDisplayCount() {
+  const { perPage, setPerPage } = useZustand();
   const options = Array.from({ length: 10 }, (_, i) => i + 1);
-  const defaultOption = "1"; // Default value
 
   return (
-    <Select defaultValue={defaultOption}>
+    <Select
+      defaultValue={perPage.toString()}
+      onValueChange={(value) => {
+        const numberValue = parseInt(value, 10);
+        setPerPage(numberValue);
+      }}
+    >
       <SelectTrigger>
         <SelectValue placeholder="Display count" />
       </SelectTrigger>

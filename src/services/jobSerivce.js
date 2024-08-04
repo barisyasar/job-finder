@@ -3,21 +3,27 @@ import axiosInstance from "@/config/axiosInstance";
 export const getJobs = async ({
   page = 1,
   perPage = 10,
-  orderByField = "id",
-  orderByDirection = "asc",
-  searchField = "name",
-  searchQuery = "",
+  orderByField,
+  orderByDirection,
+  searchField,
+  searchQuery,
 }) => {
   const response = await axiosInstance.get("/jobs", {
-    query: {
+    params: {
       page,
       perPage,
-      orderBy: {
-        [orderByField]: orderByDirection,
-      },
-      search: {
-        [searchField]: searchQuery,
-      },
+      orderBy: orderByField
+        ? {
+            field: orderByField,
+            direction: orderByDirection,
+          }
+        : null,
+      search: searchQuery
+        ? {
+            field: searchField,
+            query: searchQuery,
+          }
+        : null,
     },
   });
 

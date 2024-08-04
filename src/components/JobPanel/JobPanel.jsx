@@ -54,7 +54,7 @@ function JobPanel() {
         <div className="flex flex-col sm:flex-row sm:justify-between gap-5 lg:items-center">
           <div className="hidden sm:block w-[125px]"></div>
           <div>
-            <JobPagination currentPage={1} pageCount={10} />
+            <JobPagination totalCount={data.meta.total} />
           </div>
           <div className="flex gap-3 items-center justify-center sm:justify-end self-center w-[125px]">
             <div className="text-sm">Show</div>

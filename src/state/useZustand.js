@@ -9,6 +9,20 @@ const useZustand = create(
       setDialog: (dialog) => set({ dialog }),
       resetDialog: () => set({ dialog: null }),
 
+      // Jobs
+      page: 1,
+      perPage: 10,
+      orderByField: null,
+      orderByDirection: null,
+      searchField: "name",
+      searchQuery: "",
+
+      setPage: (page) => set({ page }),
+      setPerPage: (perPage) => set({ perPage }),
+      setOrderByField: (orderByField) => set({ orderByField }),
+      setOrderByDirection: (orderByDirection) => set({ orderByDirection }),
+      setSearchQuery: (searchQuery) => set({ searchQuery }),
+
       // user data (persisted)
       user: null,
       tokenType: null,

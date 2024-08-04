@@ -6,18 +6,42 @@ import {
   PaginationPrevious,
 } from "@/components/ui/pagination";
 import { Separator } from "../ui/separator";
+import useZustand from "@/state/useZustand";
 
-function JobPagination({ currentPage, pageCount }) {
+function JobPagination({ totalCount }) {
+  const { perPage, setPage, page } = useZustand();
+
+  const totalPages = Math.ceil(totalCount / perPage);
+
+  const handlePageChange = (newPage) => {
+    if (newPage > 0 && newPage <= totalPages) {
+      setPage(newPage);
+    }
+  };
+
   return (
     <Pagination>
       <PaginationContent>
         <PaginationItem>
-          <PaginationPrevious href="#" />
+          <PaginationPrevious
+            onClick={(e) => {
+              e.preventDefault();
+              handlePageChange(page - 1);
+            }}
+            disabled={page === 1}
+          />
         </PaginationItem>
-        {currentPage}
-        <Separator orientation="vertical" className="mx-2" /> {pageCount}
+        {page}
+        <Separator orientation="vertical" className="mx-2" />
+        {totalPages}
         <PaginationItem>
-          <PaginationNext href="#" />
+          <PaginationNext
+            onClick={(e) => {
+              e.preventDefault();
+              handlePageChange(page + 1);
+            }}
+            disabled={page === totalPages}
+          />
         </PaginationItem>
       </PaginationContent>
     </Pagination>
