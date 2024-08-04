@@ -5,8 +5,8 @@ import JobItem from "./JobItem";
 function JobList() {
   return (
     <div className="container my-3 gy-3">
-      <ScrollArea className="">
-        {Array.from({ length: 3 }).map((_, i) => (
+      <ScrollArea className="sm:h-[calc(100vh-14rem)] md:h-[calc(100vh-15rem)]">
+        {Array.from({ length: 10 }).map((_, i) => (
           <JobItem key={i} />
         ))}
       </ScrollArea>
