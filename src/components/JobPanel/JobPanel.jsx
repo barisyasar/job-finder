@@ -1,4 +1,5 @@
 // Job Panel
+import useScreen from "@/hooks/useScreen";
 import { Separator } from "../ui/separator";
 import JobDisplayCount from "./JobDisplayCount";
 import JobList from "./JobList";
@@ -7,6 +8,8 @@ import OrderJobInput from "./OrderJobInput";
 import SearchJobIntput from "./SearchJobInput";
 
 function JobPanel() {
+  const isAboveLarge = useScreen("lg");
+
   return (
     <section>
       <div className="container">
@@ -18,6 +21,8 @@ function JobPanel() {
           <div className="w-[140px]">
             <SearchJobIntput />
           </div>
+
+          {!isAboveLarge && <div className="ms-auto"></div>}
         </div>
       </div>
       <Separator />
