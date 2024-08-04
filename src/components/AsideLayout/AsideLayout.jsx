@@ -23,10 +23,14 @@ function AsideLayout() {
           <>
             <Separator orientation="vertical" className="h-screen" />
             <aside className="w-1/3 xl:w-1/4">
-              <ScrollArea className="h-screen pt-20">
-                <UserProfile />
+              <ScrollArea className="h-screen">
+                <div className="mt-20">
+                  <UserProfile />
+                </div>
 
-                <div className="mt-5 text-xl">Applied Jobs</div>
+                <div className="mt-7 mb-5 text-xl text-center">
+                  Applied Jobs
+                </div>
                 <AppliedJobs />
               </ScrollArea>
             </aside>
