@@ -44,6 +44,28 @@ const useZustand = create(
           accessToken: null,
           refreshToken: null,
         })),
+
+      addAppliedJob: (jobId) =>
+        set((state) => {
+          if (!state.user.appliedJobs.includes(jobId)) {
+            return {
+              user: {
+                ...state.user,
+                appliedJobs: [...state.user.appliedJobs, jobId],
+              },
+            };
+          }
+          return state;
+        }),
+      deleteAppliedJob: (jobId) =>
+        set((state) => {
+          return {
+            user: {
+              ...state.user,
+              appliedJobs: state.user.appliedJobs.filter((id) => id !== jobId),
+            },
+          };
+        }),
     }),
     {
       name: "auth-storage",
