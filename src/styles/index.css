@@ -81,6 +81,10 @@
     @apply size-16;
   }
 
+  header .user-profile {
+    @apply flex gap-3 items-center flex-row-reverse;
+  }
+
   .user-email {
     @apply font-light text-sm;
   }
