@@ -31,7 +31,7 @@ function JobItem({ job }) {
             </CardTitle>
           </div>
           <CardDescription>Location: {job.location}</CardDescription>
-          <CardDescription>Salary: {job.salary}</CardDescription>
+          <CardDescription>Salary: {job.salary} $</CardDescription>
         </CardHeader>
         <CardContent className="max-w-3xl">
           <p className="mb-4">{job.description}</p>
