@@ -7,16 +7,16 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { HamburgerMenuIcon } from "@radix-ui/react-icons";
 import NavbarBrand from "../NavbarBrand";
 import { NavLink } from "react-router-dom";
+import { Menu } from "lucide-react";
 
 export function NavbarMinisheet() {
   return (
     <Sheet>
       <SheetTrigger asChild>
         <Button variant="link" size="icon">
-          <HamburgerMenuIcon className="h-5 w-5" />
+          <Menu size={24} />
         </Button>
       </SheetTrigger>
       <SheetContent side="left">
