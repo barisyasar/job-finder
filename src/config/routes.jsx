@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import AsideLayout from "@/components/AsideLayout";
 import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
 
@@ -12,11 +13,21 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       {
-        path: "/",
+        index: true,
         element: <Home />,
       },
       {
-        path: "/jobs",
+        path: "*",
+        element: <NotFound />,
+      },
+    ],
+  },
+  {
+    path: "/jobs",
+    element: <AsideLayout />,
+    children: [
+      {
+        index: true,
         element: <Jobs />,
       },
       {
@@ -24,7 +35,7 @@ const router = createBrowserRouter([
         element: <NotFound />,
       },
     ],
-    errorElement: <NotFound />,
   },
 ]);
+
 export default router;
