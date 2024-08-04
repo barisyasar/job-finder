@@ -5,7 +5,7 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
 function Auth() {
   return (
-    <div className="container mt-4">
+    <div className="container mt-4 max-w-2xl">
       <Alert variant="destructive">
         <ExclamationTriangleIcon className="h-4 w-4" />
         <AlertTitle>Error</AlertTitle>
