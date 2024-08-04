@@ -10,13 +10,21 @@ import AppliedJobsSheet from "../AppliedJobsSheet/AppliedjobsSheet";
 import { Alert, AlertDescription, AlertTitle } from "../ui/alert";
 import { ExclamationTriangleIcon } from "@radix-ui/react-icons";
 import { useJobs } from "@/hooks/useJobs";
+import JobItemSkeleton from "../JobItemSkeleton";
 
 function JobPanel() {
   const isAboveLarge = useScreen("lg");
 
   const { isLoading, error, data } = useJobs();
 
-  if (isLoading) return <div className="container mt-3">Loading...</div>;
+  if (isLoading)
+    return (
+      <div className="container my-3 gy-3">
+        <JobItemSkeleton />
+        <JobItemSkeleton />
+        <JobItemSkeleton />
+      </div>
+    );
   if (error)
     return (
       <div className="container mt-4 max-w-2xl">

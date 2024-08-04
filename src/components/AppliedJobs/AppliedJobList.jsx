@@ -2,6 +2,7 @@ import AppliedJobItem from "./AppliedJobItem";
 import { Alert, AlertDescription, AlertTitle } from "../ui/alert";
 import { InfoCircledIcon } from "@radix-ui/react-icons";
 import { useAppliedJobs } from "@/hooks/useAppliedobs";
+import AppliedJobSkeleton from "../AppliedJobSkeleton";
 
 function AppliedJobList() {
   const results = useAppliedJobs();
@@ -14,7 +15,14 @@ function AppliedJobList() {
     .filter((result) => result.isSuccess)
     .map((result) => result.data);
 
-  if (isLoading) return <div className="container mt-3">Loading...</div>;
+  if (isLoading)
+    return (
+      <div className="container my-3 gy-3">
+        <AppliedJobSkeleton />
+        <AppliedJobSkeleton />
+        <AppliedJobSkeleton />
+      </div>
+    );
 
   if (hasError) {
     return (
