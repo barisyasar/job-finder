@@ -13,8 +13,8 @@ function AsideLayout() {
 
   return (
     <>
-      <div className="flex">
-        <div className="flex-grow">
+      <div className="lg:flex">
+        <div className="lg:flex-grow">
           <Header />
           <Outlet />
         </div>
