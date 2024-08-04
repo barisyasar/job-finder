@@ -10,8 +10,11 @@ import {
 import NavbarBrand from "../NavbarBrand";
 import { NavLink } from "react-router-dom";
 import { Menu } from "lucide-react";
+import useZustand from "@/state/useZustand";
 
 export function NavbarMinisheet() {
+  const { user } = useZustand();
+
   return (
     <Sheet>
       <SheetTrigger asChild>
@@ -36,16 +39,18 @@ export function NavbarMinisheet() {
                   Home
                 </NavLink>
               </li>
-              <li>
-                <NavLink
-                  to="/jobs"
-                  className={({ isActive }) =>
-                    isActive ? "underline text-white" : ""
-                  }
-                >
-                  Job List
-                </NavLink>
-              </li>
+              {user && (
+                <li>
+                  <NavLink
+                    to="/jobs"
+                    className={({ isActive }) =>
+                      isActive ? "underline text-white" : ""
+                    }
+                  >
+                    Job List
+                  </NavLink>
+                </li>
+              )}
             </ul>
           </SheetDescription>
         </SheetHeader>
