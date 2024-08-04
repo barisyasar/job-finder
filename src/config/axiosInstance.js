@@ -1,7 +1,6 @@
-// Axios Instance
-// import useZustand from "@/state/useZustand";
 import axios from "axios";
 
+// Create Axios instance
 const axiosInstance = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL,
   headers: {
@@ -9,12 +8,17 @@ const axiosInstance = axios.create({
   },
 });
 
-/* axiosInstance.interceptors.request.use((config) => {
-  const { user } = useZustand();
-  if (user?.accessToken) {
-    config.headers.Authorization = `${user.tokenType} ${user.accessToken}`;
+axiosInstance.interceptors.request.use((config) => {
+  const authData = JSON.parse(localStorage.getItem("auth-storage"));
+
+  const tokenType = authData?.state?.tokenType;
+  const accessToken = authData?.state?.accessToken;
+
+  if (tokenType && accessToken) {
+    config.headers.Authorization = `${tokenType} ${accessToken}`;
   }
+
   return config;
-}); */
+});
 
 export default axiosInstance;
