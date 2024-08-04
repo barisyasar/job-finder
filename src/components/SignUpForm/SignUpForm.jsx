@@ -13,40 +13,46 @@ import { Input } from "@/components/ui/input";
 import { signUpchema } from "@/config/validations";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { registerUser } from "@/services/userService";
+import { toast } from "../ui/use-toast";
+import { ReloadIcon } from "@radix-ui/react-icons";
+import useZustand from "@/state/useZustand";
 
 export default function SignUpForm() {
-  const form = useForm({
-    resolver: yupResolver(signUpchema),
-    defaultValues: {
-      email: "",
-      password: "",
-    },
-    mode: "onChange",
-  });
+  const { resetDialog } = useZustand();
+
+  const { formState, handleSubmit, setError, control, getFieldState } = useForm(
+    {
+      resolver: yupResolver(signUpchema),
+      defaultValues: {
+        email: "",
+        password: "",
+      },
+      mode: "onChange",
+    }
+  );
 
   const onSubmit = async (data) => {
     try {
-      const res = await registerUser(data);
-      console.log("User registered successfully:", res);
+      await registerUser(data);
+      toast({
+        title: "Success",
+        description: "You have successfully registered. Please log in.",
+      });
+      resetDialog();
     } catch (error) {
-      console.error("Registration failed:", error);
+      console.log(error);
+      setError("root", {
+        type: "manual",
+        message: error.response.data.message,
+      });
     }
-
-    /*  toast({
-      title: "You submitted the following values:",
-      description: (
-        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-          <code className="text-white">{JSON.stringify(data, null, 2)}</code>
-        </pre>
-      ),
-    }); */
   };
 
   return (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
+    <Form getFieldState={getFieldState}>
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-2">
         <FormField
-          control={form.control}
+          control={control}
           name="email"
           render={({ field }) => (
             <FormItem>
@@ -59,7 +65,7 @@ export default function SignUpForm() {
           )}
         />
         <FormField
-          control={form.control}
+          control={control}
           name="password"
           render={({ field }) => (
             <FormItem>
@@ -71,7 +77,15 @@ export default function SignUpForm() {
             </FormItem>
           )}
         />
-        <Button type="submit">Sign Up</Button>
+        <Button type="submit" disabled={formState.isSubmitting}>
+          {formState.isSubmitting && (
+            <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />
+          )}
+          Sign Up
+        </Button>
+        {formState.errors.root && (
+          <div className="text-red-500">{formState.errors.root.message}</div>
+        )}
       </form>
     </Form>
   );
