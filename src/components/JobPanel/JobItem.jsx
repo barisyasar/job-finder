@@ -12,8 +12,11 @@ import { Button } from "../ui/button";
 import JobDetailDialog from "../JobDetailDialog";
 import { Separator } from "../ui/separator";
 import KeywordList from "../KeywordList";
+import useZustand from "@/state/useZustand";
 
 function JobItem({ job }) {
+  const { user } = useZustand();
+  const { appliedJobs } = user;
   return (
     <Card className="job-item lg:flex items-start">
       <BriefcaseBusiness size={48} className="hidden lg:block ms-6 mt-6" />
@@ -40,9 +43,11 @@ function JobItem({ job }) {
       </div>
       <CardFooter className="gap-5 lg:flex lg:flex-col lg:gap-3 lg:m-6">
         <JobDetailDialog job={job} />
-        <Button className="w-[80px]" size="sm" variant="outline">
-          Withdraw
-        </Button>
+        {appliedJobs.includes(job.id) && (
+          <Button className="w-[80px]" size="sm" variant="outline">
+            Withdraw
+          </Button>
+        )}
       </CardFooter>
     </Card>
   );

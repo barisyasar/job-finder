@@ -29,3 +29,13 @@ export const getJobs = async ({
 
   return response.data;
 };
+
+export const applyJob = async ({ id }) => {
+  const response = await axiosInstance.post(`/jobs/${id}/apply`);
+  return response.data;
+};
+
+export const getAppliedJobs = async (id) => {
+  const response = await axiosInstance.get(`/jobs/${id}`);
+  return response.data;
+};
