@@ -12,7 +12,7 @@ function AppliedJobList() {
       {user.appliedJobs.length === 0 ? (
         <Alert variant="info" className="text-yellow-400">
           <InfoCircledIcon className="h-4 w-4 stroke-yellow-400" />
-          <AlertTitle>Error</AlertTitle>
+          <AlertTitle>Warning</AlertTitle>
           <AlertDescription>There is no applied job exist.</AlertDescription>
         </Alert>
       ) : (
