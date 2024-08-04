@@ -7,9 +7,12 @@ import AppliedJobs from "../AppliedJobs";
 import { Separator } from "../ui/separator";
 import { ScrollArea } from "../ui/scroll-area";
 import UserProfile from "../UserProfile";
+import useZustand from "@/state/useZustand";
 
 function AsideLayout() {
   const isAboveLarge = useScreen("lg");
+
+  const { user } = useZustand();
 
   return (
     <>
@@ -19,7 +22,7 @@ function AsideLayout() {
           <Outlet />
         </div>
 
-        {isAboveLarge && (
+        {isAboveLarge && user && (
           <>
             <Separator orientation="vertical" className="h-screen" />
             <aside className="w-1/3 xl:w-1/4">

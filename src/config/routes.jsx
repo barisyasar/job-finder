@@ -2,6 +2,7 @@ import Layout from "@/components/Layout";
 import AsideLayout from "@/components/AsideLayout";
 import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
+import AuthRoute from "@/components/AuthRoute";
 
 const Home = lazy(() => import("@/pages/Home"));
 const Jobs = lazy(() => import("@/pages/Jobs"));
@@ -28,7 +29,11 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Jobs />,
+        element: (
+          <AuthRoute>
+            <Jobs />
+          </AuthRoute>
+        ),
       },
       {
         path: "*",
