@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import useScreen from "@/hooks/useScreen";
 import AppliedJobs from "../AppliedJobs";
 import { Separator } from "../ui/separator";
+import { ScrollArea } from "../ui/scroll-area";
 
 function AsideLayout() {
   const isAboveLarge = useScreen("lg");
@@ -21,7 +22,9 @@ function AsideLayout() {
           <>
             <Separator orientation="vertical" className="h-screen" />
             <aside className="w-1/3">
-              <AppliedJobs />
+              <ScrollArea className="h-screen">
+                <AppliedJobs />
+              </ScrollArea>
             </aside>
           </>
         )}
