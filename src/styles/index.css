@@ -72,10 +72,11 @@
   .job-item + .job-item {
     @apply mt-3;
   }
-
+  .applied-jobs-sheet-header .user-profile,
   aside .user-profile {
     @apply flex flex-col gap-2 items-center;
   }
+  .applied-jobs-sheet-header .user-profile .user-img,
   aside .user-profile .user-img {
     @apply size-16;
   }
