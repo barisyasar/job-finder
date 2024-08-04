@@ -25,6 +25,8 @@
   - Tanstack Query (first time by the way)
   - React Hook Form
   - Zustand (preferred for state management)
+  - Shadcn/ui
+  - Yup for form validation
 
 - **Backend:**
   - API: [Novel Project API](https://novel-project-ntj8t.ampt.app/swagger/)
@@ -46,7 +48,7 @@ yarn install
 ```
 
 ```sh
-VITE_API_BASE_URL=https://novel-project-ntj8t.ampt.app/
+VITE_API_BASE_URL=https://novel-project-ntj8t.ampt.app/api
 ```
 
 ```sh
@@ -62,15 +64,13 @@ job-finder/
 │ ├── assets/
 │ ├── components/
 │ │ ├── ui/
-│ │ │ ├── button.jsx
 │ ├── config/
-│ │ ├── queryClient.js
 │ ├── hooks/
 │ ├── pages/
 │ ├── services/
 │ ├── state/
 │ ├── styles/
-│ │ │ ├── indexx.css
+│ │ │ ├── index.css
 │ ├── utils/
 │ ├── App.jsx
 │ ├── main.jsx
@@ -78,6 +78,7 @@ job-finder/
 ├── .eslintrc.cjs
 ├── .gitignore
 ├── .prettierrc.json
+├── .tailwind.config.js
 ├── package.json
 ├── README.md
 └── vite.config.js
