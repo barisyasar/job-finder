@@ -66,6 +66,9 @@
   body {
     @apply bg-background text-foreground;
   }
+  .applied-job-item + .applied-job-item {
+    @apply mt-5;
+  }
   .job-item + .job-item {
     @apply mt-3;
   }
