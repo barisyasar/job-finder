@@ -19,13 +19,13 @@ function JobItem({ job }) {
       <BriefcaseBusiness size={48} className="hidden lg:block ms-6 mt-6" />
       <div className="lg:flex-grow">
         <CardHeader>
-          <div className="flex items-start md:items-start gap-3">
+          <div className="flex items-start xl:items-start gap-3">
             <BriefcaseBusiness size={28} className="lg:hidden" />
-            <CardTitle className="flex md:items-center flex-col md:flex-row gap-2">
+            <CardTitle className="flex xl:items-center flex-col xl:flex-row gap-2">
               <div>{job.companyName}</div>
               <Separator
                 orientation="vertical"
-                className="hidden md:block h-6 bg-blue-800"
+                className="hidden xl:block h-6 bg-blue-800"
               />
               <div>{job.name}</div>
             </CardTitle>
