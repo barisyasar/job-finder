@@ -14,7 +14,7 @@ function AppliedJobList() {
     .filter((result) => result.isSuccess)
     .map((result) => result.data);
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <div className="container mt-3">Loading...</div>;
 
   if (hasError) {
     return (

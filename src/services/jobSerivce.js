@@ -30,8 +30,13 @@ export const getJobs = async ({
   return response.data;
 };
 
-export const applyJob = async ({ id }) => {
+export const applyJob = async (id) => {
   const response = await axiosInstance.post(`/jobs/${id}/apply`);
+  return response.data;
+};
+
+export const withdrawJob = async (id) => {
+  const response = await axiosInstance.post(`/jobs/${id}/withdraw`);
   return response.data;
 };
 

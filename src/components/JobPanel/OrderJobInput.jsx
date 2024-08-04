@@ -10,12 +10,7 @@ import {
 } from "../ui/select";
 
 function OrderJobInput() {
-  const {
-    orderByField,
-    orderByDirection,
-    setOrderByField,
-    setOrderByDirection,
-  } = useZustand();
+  const { setOrderByField, setOrderByDirection } = useZustand();
 
   const handleSelectChange = (value) => {
     const [field, direction] = value.split("_");
@@ -24,10 +19,7 @@ function OrderJobInput() {
   };
 
   return (
-    <Select
-      onValueChange={handleSelectChange}
-      defaultValue={`${orderByField}_${orderByDirection}`}
-    >
+    <Select onValueChange={handleSelectChange}>
       <SelectTrigger>
         <SelectValue placeholder="Select a field" />
       </SelectTrigger>

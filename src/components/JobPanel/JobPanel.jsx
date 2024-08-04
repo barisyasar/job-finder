@@ -16,7 +16,7 @@ function JobPanel() {
 
   const { isLoading, error, data } = useJobs();
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <div className="container mt-3">Loading...</div>;
   if (error)
     return (
       <div className="container mt-4 max-w-2xl">

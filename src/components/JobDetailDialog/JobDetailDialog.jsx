@@ -11,30 +11,14 @@ import {
 import { formatDate } from "@/utils/formatDate";
 import { DialogClose, DialogDescription } from "@radix-ui/react-dialog";
 import KeywordList from "../KeywordList";
-import { useState } from "react";
-import { applyJob } from "@/services/jobSerivce";
+import ApplyJobButton from "../ApplyJobButton";
+import useZustand from "@/state/useZustand";
 
 export default function JobDetailDialog({ job }) {
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const [success, setSuccess] = useState(null);
+  const { user } = useZustand();
+  const { appliedJobs } = user;
 
-  const handleApplyClick = async () => {
-    setLoading(true);
-    setError(null);
-    setSuccess(null);
-
-    try {
-      const result = await applyJob({ id: job.id });
-      setSuccess("Job applied successfully!");
-      console.log(result);
-    } catch (error) {
-      setError("Failed to apply for the job.");
-    } finally {
-      setLoading(false);
-    }
-  };
-
+  const isApplied = appliedJobs.includes(job.id);
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -81,9 +65,7 @@ export default function JobDetailDialog({ job }) {
               Close
             </Button>
           </DialogClose>
-          <Button type="button" onClick={handleApplyClick}>
-            Apply
-          </Button>
+          {!isApplied && <ApplyJobButton id={job.id} />}
         </DialogFooter>
       </DialogContent>
     </Dialog>
