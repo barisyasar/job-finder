@@ -11,7 +11,7 @@ function Auth() {
         <ExclamationTriangleIcon className="h-4 w-4" />
         <AlertTitle>Error</AlertTitle>
         <AlertDescription>
-          In order to view this page you must login.
+          In order to view this page you must be logged in.
         </AlertDescription>
       </Alert>
       <div className="mt-3 flex justify-center">
