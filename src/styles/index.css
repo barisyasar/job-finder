@@ -70,13 +70,14 @@
     @apply mt-3;
   }
 
-  .applied-jobs .user-profile {
+  aside .user-profile {
     @apply flex flex-col gap-2 items-center;
   }
-  .applied-jobs .user-profile .user-img {
+  aside .user-profile .user-img {
     @apply size-16;
   }
-  .applied-jobs .user-profile .user-email {
+
+  .user-email {
     @apply font-light text-sm;
   }
 }

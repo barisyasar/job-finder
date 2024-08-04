@@ -1,13 +1,7 @@
 // Applied Jobs
 
-import UserProfile from "../UserProfile";
-
 function AppliedJobs() {
-  return (
-    <div className="applied-jobs">
-      <UserProfile />
-    </div>
-  );
+  return <div className="applied-jobs"></div>;
 }
 
 export default AppliedJobs;
