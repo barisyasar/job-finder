@@ -8,10 +8,10 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { BriefcaseBusiness } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "../ui/button";
 import JobDetailDialog from "../JobDetailDialog";
 import { Separator } from "../ui/separator";
+import KeywordList from "../KeywordList";
 
 function JobItem({ job }) {
   return (
@@ -35,13 +35,7 @@ function JobItem({ job }) {
         </CardHeader>
         <CardContent className="max-w-3xl">
           <p className="mb-4">{job.description}</p>
-          <div className="flex gap-2">
-            {job.keywords.map((keyword) => (
-              <Badge key={keyword} className="bg-blue-800 text-white">
-                # {keyword}
-              </Badge>
-            ))}
-          </div>
+          <KeywordList keywords={job.keywords} />
         </CardContent>
       </div>
       <CardFooter className="gap-5 lg:flex lg:flex-col lg:gap-3 lg:m-6">

@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/dialog";
 import { formatDate } from "@/utils/formatDate";
 import { DialogClose, DialogDescription } from "@radix-ui/react-dialog";
+import KeywordList from "../KeywordList";
 
 export default function JobDetailDialog({ job }) {
   return (
@@ -37,8 +38,8 @@ export default function JobDetailDialog({ job }) {
                 <span className="font-light">{formatDate(job.createdAt)}</span>
               </div>
               <div>
-                <span className="font-semibold">Keyword:</span>{" "}
-                <span className="font-light">{job.salary}</span>
+                <div className="font-semibold mb-2">Keywords:</div>
+                <KeywordList keywords={job.keywords} />
               </div>
               <div>
                 <div className="font-semibold">Description:</div>{" "}
