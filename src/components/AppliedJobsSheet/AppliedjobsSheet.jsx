@@ -18,10 +18,10 @@ export default function AppliedJobsSheet() {
       <SheetTrigger asChild>
         <Button size="sm">Applied Jobs</Button>
       </SheetTrigger>
-      <SheetContent>
+      <SheetContent className="w-full">
         <SheetHeader className="applied-jobs-sheet-header">
           <UserProfile />
-          <SheetTitle>Applied Jobs</SheetTitle>
+          <SheetTitle className="text-center">Applied Jobs</SheetTitle>
           <SheetDescription>
             <ScrollArea className="h-[calc(100vh-10rem)]">
               <AppliedJobList />
