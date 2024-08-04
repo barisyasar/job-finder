@@ -6,6 +6,7 @@ import JobList from "./JobList";
 import JobPagination from "./JobPagination";
 import OrderJobInput from "./OrderJobInput";
 import SearchJobIntput from "./SearchJobInput";
+import AppliedJobsSheet from "../AppliedJobsSheet/AppliedjobsSheet";
 
 function JobPanel() {
   const isAboveLarge = useScreen("lg");
@@ -22,7 +23,11 @@ function JobPanel() {
             <SearchJobIntput />
           </div>
 
-          {!isAboveLarge && <div className="ms-auto"></div>}
+          {!isAboveLarge && (
+            <div className="ms-auto">
+              <AppliedJobsSheet />
+            </div>
+          )}
         </div>
       </div>
       <Separator />
