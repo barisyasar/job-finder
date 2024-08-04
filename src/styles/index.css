@@ -69,4 +69,14 @@
   .job-item + .job-item {
     @apply mt-3;
   }
+
+  .applied-jobs .user-profile {
+    @apply flex flex-col gap-2 items-center;
+  }
+  .applied-jobs .user-profile .user-img {
+    @apply size-16;
+  }
+  .applied-jobs .user-profile .user-email {
+    @apply font-light text-sm;
+  }
 }
