@@ -10,12 +10,13 @@ import {
 } from "../ui/select";
 
 function OrderJobInput() {
-  const { setOrderByField, setOrderByDirection } = useZustand();
+  const { setOrderByField, setOrderByDirection, setPage } = useZustand();
 
   const handleSelectChange = (value) => {
     const [field, direction] = value.split("_");
     setOrderByField(field);
     setOrderByDirection(direction);
+    setPage(1);
   };
 
   return (

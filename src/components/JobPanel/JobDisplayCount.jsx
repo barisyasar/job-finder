@@ -10,7 +10,7 @@ import {
 } from "../ui/select";
 
 function JobDisplayCount() {
-  const { perPage, setPerPage } = useZustand();
+  const { perPage, setPerPage, setPage } = useZustand();
   const options = Array.from({ length: 10 }, (_, i) => i + 1);
 
   return (
@@ -19,6 +19,7 @@ function JobDisplayCount() {
       onValueChange={(value) => {
         const numberValue = parseInt(value, 10);
         setPerPage(numberValue);
+        setPage(1);
       }}
     >
       <SelectTrigger>

@@ -9,7 +9,7 @@ import { Separator } from "../ui/separator";
 import useZustand from "@/state/useZustand";
 
 function JobPagination({ totalCount }) {
-  const { perPage, setPage, page } = useZustand();
+  const { page, setPage, perPage } = useZustand();
 
   const totalPages = Math.ceil(totalCount / perPage);
 

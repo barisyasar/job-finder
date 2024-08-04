@@ -4,7 +4,7 @@ import { Input } from "../ui/input";
 import { useDebounce } from "use-debounce";
 
 function SearchJobInput() {
-  const { searchQuery, setSearchQuery } = useZustand();
+  const { searchQuery, setSearchQuery, setPage } = useZustand();
 
   const [localSearchQuery, setLocalSearchQuery] = useState(searchQuery);
 
@@ -16,6 +16,7 @@ function SearchJobInput() {
 
   const handleInputChange = (event) => {
     setLocalSearchQuery(event.target.value);
+    setPage(1);
   };
 
   return (
