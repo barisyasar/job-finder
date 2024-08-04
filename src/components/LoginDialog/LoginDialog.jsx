@@ -36,7 +36,6 @@ export default function LoginDialog() {
           <Button
             variant="link"
             className="p-0 text-base text-blue-600"
-            size="md"
             onClick={() => setDialog("sign up")}
           >
             Sign Up
